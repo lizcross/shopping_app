@@ -40,3 +40,9 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'autoprefixer-rails'
+
+#authentication
+gem 'devise'
+
+#authorization
+gem 'cancan'
