@@ -46,3 +46,5 @@ gem 'devise'
 
 #authorization
 gem 'cancan'
+
+gem 'debugger-ruby_core_source'
