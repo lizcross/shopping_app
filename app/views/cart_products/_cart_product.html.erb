@@ -2,6 +2,7 @@
   <td><%= image_tag(cart_product.product.image, width: "80", height: "115") if cart_product.product.image?%></td>
   <td><%= cart_product.product.name %></td>
   <td><%= number_to_currency cart_product.product.price%></td>
-  <td><%= cart_product.quantity%></td>
+  <td><%= render partial: 'cart_products/update', object: cart_product %></td>
+  <td><%= render partial: 'cart_products/remove', object: cart_product %></td>
 
 </tr>
