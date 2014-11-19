@@ -5,6 +5,14 @@
 	  <td></td>
 	  <td>Price</td>
 	  <td>Quantity</td>
+	  <td></td>
 	</tr>
  	<%= render @cartProducts %>
+ 	<tr id="total">
+	  <td></td>
+	  <td></td>
+	  <td><%= "Total: #{number_to_currency @cartTotal}" %></td>
+	  <td></td>
+	  <td></td>
+	</tr>
 </table>

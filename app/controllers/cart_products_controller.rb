@@ -1,6 +1,7 @@
 class CartProductsController < ApplicationController
-	#need to add before_actions here
-	
+	before_action :logged_in_customer, only: [:create, :update, :destroy]
+	before_action :correct_user,   only: [:destroy, :update]
+
 	def create
 		@cartProduct = current_customer.cart.cart_products.build(cart_product_params)
 	    if @cartProduct.save
@@ -11,7 +12,6 @@ class CartProductsController < ApplicationController
 	end
 
 	def update
-		@cartProduct = CartProduct.find(params[:id])
 		if @cartProduct.update_attributes(cart_product_params)
 			redirect_to cart_path
 		else
@@ -20,7 +20,7 @@ class CartProductsController < ApplicationController
 	end
 
 	def destroy
-		CartProduct.find(params[:id]).destroy
+		@cartProduct.destroy
 		redirect_to cart_path
 	end
 
@@ -28,5 +28,10 @@ class CartProductsController < ApplicationController
 
     def cart_product_params
       params.require(:cart_product).permit(:product_id, :quantity)
+    end
+
+    def correct_user
+      @cartProduct = current_customer.cart.cart_products.find_by(id: params[:id])
+      redirect_to root_url if @cartProduct.nil?
     end
 end
