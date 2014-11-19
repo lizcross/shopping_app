@@ -4,4 +4,4 @@ Sample shopping app which allows customers to sign up, add items to their cart a
 
 The purpose of this app was to learn how to make a basic app with rails. 
 
-Used the Devise gem authentication.
+Used the Devise gem for authentication.
